@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ANALISADOR DE TEXTO</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="index.js" type="module"></script>
+  <script src="analyzer.js"></script>
+</head>
+
+<body>
+
+<h1>ANALISADOR DE TEXTO</h1>
+<center>
+<textarea rows="7" placeholder="Escreva ou cole o texto aqui.." name="user-input"></textarea>
+</center>
+<center>
+<button onclick="clean()" id="reset-button"><strong>LIMPAR 🧼</strong></button>
+</center>
+
+<center>
+<ul id="listaMetricas>
+<li class="cont" data-testid="word-count">
+<p>contagem de palavras:</p>
+<li class="cont" data-testid="character-count">
+<p>contagem de caracteres:</p>
+<li class="cont" data-testid="character-no-spaces-count">
+<p>contagem de caracteres excluindo espaços e sinais de pontuação:</p>
+<li class="cont" data-testid="number-count">
+<p>contagem de números:</p>
+<li class="cont" data-testid="number-sum">
+<p>soma total de números:</p>
+<li class="cont" data-testid="word-length-average">
+<p>comprimento médio das palavras:</p>
+</ul></center>
+
+<footer> 
+  <p> By:  Yasmin Mendes Oliveira | Sap012</p>
+</footer>
+
+</body>
+</html>
