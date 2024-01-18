@@ -1,21 +1,44 @@
-const analyzer = {  
+const analyzer = {
   getWordCount: (text) => {
-    //TODO: esta función debe retornar el recuento de palabras que se encuentran en el parámetro `text` de tipo `string`.
+    const words = text.trim().split(/\s+/);
+    return words.length;
+
   },
   getCharacterCount: (text) => {
-    //TODO: esta función debe retornar el recuento de caracteres que se encuentran en el parámetro `text` de tipo `string`.
+    return text.length;
   },
   getCharacterCountExcludingSpaces: (text) => {
-    //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
+    const characters = text.replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
+    return characters.length;
   },
-  getAverageWordLength: (text) => {    
-    //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
+  getAverageWordLength: (text) => {
+    const words = text.trim().split(/\s+/);
+    let totalLength = 0;
+    const wordCount = analyzer.getWordCount(text);
+
+    for (let i = 0; i < words.length; i++) {
+      totalLength += words[i].length;
+    }
+
+    const averageLength = totalLength / wordCount;
+    return Math.round(averageLength * 100) / 100;
   },
   getNumberCount: (text) => {
-    //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
+    const matches = text.match(/\b\d+(?:\.\d+)?\b/g);
+    if (matches) {
+      return matches.length;
+    } else {
+      return 0;
+    }
   },
   getNumberSum: (text) => {
-    //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
+    const numbers = text.match(/\b\d+(?:\.\d+)?\b/g) || [];
+    const sum = numbers.reduce((acc, num) => {
+      const parsedNum = parseFloat(num);
+      return isNaN(parsedNum) ? acc : acc + parsedNum;
+    }, 0);
+
+    return Math.round(sum * 100) / 100;
   },
 };
 
